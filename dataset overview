@@ -1,0 +1,47 @@
+About Dataset
+Dataset Overview
+This dataset contains sensor data collected from various machines, with the aim of predicting machine failures in advance. It includes a variety of sensor readings as well as the recorded machine failures.
+
+Columns Description
+footfall: The number of people or objects passing by the machine.
+temp Mode: The temperature mode or setting of the machine.
+AQ: Air quality index near the machine.
+USS: Ultrasonic sensor data, indicating proximity measurements.
+CS: Current sensor readings, indicating the electrical current usage of the machine.
+VOC: Volatile organic compounds level detected near the machine.
+RP: Rotational position or RPM (revolutions per minute) of the machine parts.
+IP: Input pressure to the machine.
+Temperature: The operating temperature of the machine.
+fail: Binary indicator of machine failure (1 for failure, 0 for no failure).
+
+Check for Stationarity
+
+A stationary series has no trend or seasonal effects.
+
+Use a Dickey-Fuller test.
+
+
+Differencing (I part)
+
+Now the differenced series is: [20, 20, 25, 30, 15, 20, 30] — more stable.
+
+Fit ARIMA(p,d,q)
+
+Try combinations of p, d=1 (since we differenced once), and q.
+
+Use AIC/BIC or grid search to find the best model.
+
+Let’s say best model is ARIMA(1,1,1).
+
+Model Training
+
+The model uses:
+
+1 lag of the differenced series (AR part),
+
+1 lag of the forecast error (MA part),
+
+1 order of differencing (I part).
+
+Forecasting
+
