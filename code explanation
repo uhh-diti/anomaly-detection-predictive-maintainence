@@ -1,0 +1,47 @@
+The goal of this project is to build a web-based forecasting tool using the ARIMA model. It allows non-technical users to:
+
+Upload a time series dataset (like stock prices, sales, etc.)
+
+Configure ARIMA parameters (p, d, q)
+
+Automatically build and apply a forecasting model
+
+See forecast results and visualizations
+
+Run everything through a simple browser interface
+
+This eliminates the need for users to write Python code or understand ARIMA internals.
+Streamlit is an open-source Python framework that lets you build interactive web apps directly from Python scripts — especially designed for data science and machine learning.
+
+ Key Features:
+Write a simple .py file — no HTML/CSS/JS needed.
+
+Automatically creates a user interface from Python code.
+
+Great for ML models, data visualization, dashboards.
+
+Instantly shows plots, dataframes, widgets like sliders and buttons.
+ngrok is a tool that lets you expose a local server to the internet. It creates a secure public URL that forwards to your local machine or environment (like Colab or Jupyter).
+
+ Why Do We Use ngrok?
+Streamlit runs on localhost:8501 (not accessible from the web).
+
+Google Colab, where you're likely running the code, doesn’t support direct ports.
+
+ngrok tunnels that port through the internet, giving you a public link you can click.
+How ngrok Works:
+You run ngrok.connect("http://localhost:8501")
+
+ngrok generates a secure public URL (e.g., https://xyz123.ngrok.io)
+
+Anyone with the link can access your app (hosted on your Colab).
+
+These are the libraries imported at the top of the app:
+Library	Purpose
+streamlit	Builds the interactive web interface (e.g., file upload, inputs, charts).
+pandas	Handles data loading, manipulation, and processing (e.g., CSV, time index).
+numpy	Numerical operations (used to check data types or handle numbers).
+matplotlib.pyplot	Used for plotting time series graphs directly.
+ARIMA from statsmodels	Fits ARIMA models for time series forecasting.
+mean_squared_error from sklearn.metrics	Calculates accuracy by comparing forecast to actual values.
+warnings	Suppresses non-critical warnings to keep the output clean.
